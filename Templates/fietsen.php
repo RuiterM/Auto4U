@@ -36,7 +36,7 @@ include_once('defaults/head.php');
                 echo "<td>". $fiets['merk'] ."</td>";
                 echo "<td>".$fiets['model'] ."</td>";
                 echo "<td>";
-                echo "<a href='/fietsen/'".$fiets['id']. "'>";
+                echo "<a href='/details/".$fiets['id']. "'>";
                 echo "Details";
                 echo "</a><br>";
                 echo "</td>";
@@ -44,7 +44,6 @@ include_once('defaults/head.php');
                 $teller++;
             }
             ?>
-
 </div>
 </body>
 </html>

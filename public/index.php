@@ -44,6 +44,11 @@ switch ($params[1]) {
        include_once "../Templates/fietsen.php";
        break;
 
+    case 'details':
+        include_once "../Templates/details.php";
+        break;
+
+
         case 'logout':
         $titleSuffix = ' | Home';
         include_once "../Templates/home.php";

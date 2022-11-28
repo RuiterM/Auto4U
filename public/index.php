@@ -4,6 +4,7 @@ require '../Modules/login.php';
 require '../Modules/logout.php';
 require '../Modules/database.php';
 require '../Modules/common.php';
+require '../Modules/products.php';
 
 session_start();
 //var_dump($_SESSION);
@@ -29,7 +30,9 @@ switch ($params[1]) {
         break;
 
     case 'category':
-        include_once "../Templates/home.php";
+        $products=getProducts($params[2]);
+        //echo "<pre>";var_dump($products);echo "</pre>";die;
+        include_once "../Templates/products.php";
         break;
 
     case 'product':
@@ -65,11 +68,11 @@ switch ($params[1]) {
         break;
 
     case 'admin':
-        include_once ('admin.php');
+        include_once('admin.php');
         break;
 
     case 'member':
-        include_once ('member.php');
+        include_once('member.php');
         break;
 
     default:

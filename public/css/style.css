@@ -1,28 +1,46 @@
+* {
+    font-family: 'Inter', sans-serif;
+
+}
+
+
+.wheel {
+    animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.wheel {
+    height: 80px;
+    width: 80px;
+    box-sizing: border-box;
+    border-radius: 100%;
+    border: 5px solid black;
+    margin-right: 20px;
+}
+
 body {
-    background-color: gainsboro
+    background: linear-gradient(-45deg, 	#000000, 	#FFFFFF, #828282);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
 }
 
-.container {
-    background-color: white;
-}
-
-.pull-right img-thumbnail {
-    margin-top: -10px;
-    margin-bottom: 10px
-}
-
-.header-row {
-    margin-top: 20px
-}
-
-.banner-img {
-    margin-bottom: 20px
-}
-
-.navbar {
-    margin-bottom: 0;
-}
-
-.product-img {
-    width: 70%;
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

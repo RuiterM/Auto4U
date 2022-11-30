@@ -1,28 +1,53 @@
+<?php
+$db = new PDO('mysql:host=localhost;dbname=auto4u',
+    "root" . "");
+$query = $db->prepare("select * FROM cards");
+$query->execute();
+$autos = $query->fetchAll(PDO::FETCH_ASSOC);?>
+
 <!DOCTYPE html>
 <html>
     <?php
     include_once('defaults/head.php');
     ?>
     <body>
-        <div class="container">
             <?php
             include_once ('defaults/header.php');
-            include_once ('defaults/menu.php');
-            include_once ('defaults/pictures.php');
+
             ?>
-            <?php if(!empty($message)): ?>
-                <div class="alert alert-success" role="alert">
-                    <?=$message?>
+            <div class="d-flex justify-content-center">
+                <div>
+                    <h1 class="pt-2">Goedemiddag, welkom bij Auto4u</h1>
+                    <i class="d-flex justify-content-center fw-bold fst-normal text-secondary">Goeden<?php $datum = date("H");
+
+                        if ($datum > 6 && $datum < 12) {
+                            echo "ochtend";
+                        }
+                        elseif ($datum > 12 && $datum < 18) {
+                            echo "middag";
+                        }
+                        elseif ($datum > 18 && $datum < 24) {
+                            echo "avond";
+                        }
+                        elseif ($datum > 24 || $datum < 6) {
+                            echo "nacht";
+                        } ?> de datum van vandaag is: <?php
+                        $datum = date('d-m-Y H:i');
+                        echo $datum
+                        ?></i></p>
                 </div>
-            <?php endif;?>
-            <h4>Sportcenter HealthOne</h4>
-            Fit en gezond zijn is geen vanzelfsprekendheid. We moeten er zelf wat voor doen. Goede, gezonde voeding is hiervoor de basis.
-            Bewegen hoort hier ook bij. Regelmatig bewegen zorgt voor een goede doorbloeding en draagt bij aan ontspanning van lichaam en geest.
-            Sporten is goed voor sterkere spieren en voor de conditie. Sporcenter HealthOne heeft verschillende sportapparaten om mee te kunnen werken aan je conditie.
-            <hr>
-            <?php
-            include_once ('defaults/footer.php');
-            ?>
-        </div>
+            </div>
+            <div class="container pb-3">
+                <div class="row d-flex justify-content-center">
+                    <div class="container pb-3">
+                        <div class="row d-flex justify-content-center">
+                             <?php foreach ($autos as $auto) {
+                                echo "<div class='card w-25 px-2 bg-secondary' style='margin: 5px'>";
+                                echo  '<img class="border border-dark border-3" src="'.$auto['img'].'">' . "<br><br>" . "
+                    " . $auto["beschrijving"];
+                                echo '</div>';
+                                echo "<br>";}?>
+                        </div>
+                    </div>
     </body>
 </html>

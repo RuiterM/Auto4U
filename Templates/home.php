@@ -39,15 +39,24 @@ $autos = $query->fetchAll(PDO::FETCH_ASSOC);?>
             </div>
             <div class="container pb-3">
                 <div class="row d-flex justify-content-center">
-                    <div class="container pb-3">
-                        <div class="row d-flex justify-content-center">
                              <?php foreach ($autos as $auto) {
                                 echo "<div class='card w-25 px-2 bg-secondary' style='margin: 5px'>";
-                                echo  '<img class="border border-dark border-3" src="'.$auto['img'].'">' . "<br><br>" . "
+                                echo  '<img class="border border-dark border-3 rounded-3 mt-2" src="'.$auto['img'].'">' . "<br><br>" . "
                     " . $auto["beschrijving"];
                                 echo '</div>';
                                 echo "<br>";}?>
-                        </div>
-                    </div>
+                </div>
+            </div>
+            <div class="container pb-3">
+                <div class="bg-secondary border border-dark rounded-3">
+                    <h1>Auto4U!</h1><br>
+                    <h3>De website waar u alles over elke auto komt te weten!</h3>
+                </div>
+            </div>
+
+            <?php
+            include_once('defaults/footer.php');
+            ?>
     </body>
+
 </html>

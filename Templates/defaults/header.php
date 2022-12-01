@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary" style="background: rgb(0,0,0);
+<nav class="navbar navbar-expand-lg navbar-light" style="background: rgb(0,0,0);
 background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%);">
     <div class="container-fluid">
         <a href="index.php">

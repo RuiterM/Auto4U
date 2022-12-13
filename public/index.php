@@ -59,7 +59,7 @@ switch ($params[1]) {
 
     case 'register':
         $titleSuffix = ' | Home';
-        include_once "../Templates/home.php";
+        include_once "../Templates/register.php";
         break;
 
     case 'contact':

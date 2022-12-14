@@ -1,3 +1,7 @@
+<?php
+include_once('head.php');
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light" style="background: rgb(0,0,0);
 background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%);">
     <div class="container-fluid">
@@ -10,16 +14,16 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%);"
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="/Catogorien">Catogoriën</a>
+                    <a id="header_btn" class="nav-link text-light" href="/Catogorien">Catogoriën</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="/huren.php">Huren</a>
+                    <a id="header_btn" class="nav-link text-light" href="/huren.php">Huren</a>
                 </li>
                 <li class="nav-item me-auto">
-                    <a class="nav-link text-dark" style="margin-left: 1450px" href="/login">Login</a>
+                    <a id="header_btn2" class="nav-link text-dark" style="margin-left: 1450px" href="/login">Login</a>
                 </li>
                 <li class="nav-item me-auto">
-                    <a class="nav-link text-dark" href="/register">Registeer</a>
+                    <a id="header_btn2" class="nav-link text-dark" href="/register">Registeer</a>
                 </li>
             </ul>
         </div>

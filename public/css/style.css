@@ -44,3 +44,43 @@ body {
         background-position: 0% 50%;
     }
 }
+
+#register_form {
+    margin-left: 395px;
+    border: solid black 2px;
+    width: 500px;
+    height: auto;
+    border-radius: 5%;
+    background: linear-gradient(-45deg, 	white, grey, lightgrey);
+    background-size: 400% 400%;
+    animation: gradient 50s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#input {
+    border: 0;
+    background: transparent;
+    margin-bottom: 25px
+}
+
+#submit {
+    border: 0;
+    background: transparent;
+    transition: 0.3s
+}
+
+#submit:hover {
+    border-bottom: #FFFFFF;
+    color: lightgrey;
+}

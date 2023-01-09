@@ -6,7 +6,7 @@ $query = $db->prepare("select * FROM cards");
 $query->execute();
 $autos = $query->fetchAll(PDO::FETCH_ASSOC);
 
-if (isset($_POST['register'])) {
+if (isset($_POST['Login'])) {
     if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['firstName']) && !empty($_POST['lastName'])) {
 
         $Email = filter_input(INPUT_POST,'email', FILTER_VALIDATE_EMAIL);
@@ -32,7 +32,7 @@ if (isset($_POST['register'])) {
             $query->bindParam(":lastName", $LastName);
 
             if ($query->execute()) {
-                header('location:/login');
+                $melding = "Gegevens zijn toegevoegd!";
 
             }
         }
@@ -64,11 +64,7 @@ include_once ('defaults/header.php');
             <input type="email" id="input" class="border-bottom border-dark border-2" name="email"><br><br>
             <label for="email">Password:</label><br>
             <input type="password" id="input" class="border-bottom border-dark border-2" name="password"><br><br>
-            <label for="email">Voornaam:</label><br>
-            <input type="text" id="input" class="border-bottom border-dark border-2" name="firstName"><br><br>
-            <label for="email">Achternaam:</label><br>
-            <input type="text" id="input" class="border-bottom border-dark border-2" name="lastName"><br><br>
-            <button type="submit" id="submit" name="register" class="d-flex border-bottom border-dark border-2" value="Registreer">Registreer</button><br>
+            <button type="submit" id="submit" name="register" class="d-flex border-bottom border-dark border-2" value="Login">Login</button><br>
             <?php echo $melding ?><br><br>
         </form>
     </div>

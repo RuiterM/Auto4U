@@ -3,7 +3,7 @@
 function getCategories():array
 {
     global $pdo;
-    $categories = $pdo->query('SELECT * FROM category')->fetchAll(PDO::FETCH_CLASS, 'Category');
+    $categories = $pdo->query('SELECT * FROM catogorieen')->fetchAll(PDO::FETCH_CLASS, 'Category');
     return $categories;
 }
 

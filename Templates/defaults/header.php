@@ -14,7 +14,7 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%);"
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a id="header_btn" class="nav-link text-light" href="/Catogorien">Catogoriën</a>
+                    <a id="header_btn" class="nav-link text-light" href="/categories">Catogoriën</a>
                 </li>
                 <li class="nav-item">
                     <a id="header_btn" class="nav-link text-light" href="/huren.php">Huren</a>

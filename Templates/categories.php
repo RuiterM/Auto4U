@@ -1,9 +1,6 @@
 <?php
-$db = new PDO('mysql:host=localhost;dbname=auto4u',
-    "root" . "");
-$query = $db->prepare("select * FROM cards");
-$query->execute();
-$autos = $query->fetchAll(PDO::FETCH_ASSOC);?>
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -15,7 +12,6 @@ include_once('defaults/head.php');
 include_once ('defaults/header.php');
 
 ?>
-
 
 <?php
 include_once('defaults/footer.php');

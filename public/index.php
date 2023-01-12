@@ -1,4 +1,4 @@
-+<?php
+<?php
 require '../Modules/categories.php';
 require '../Modules/login.php';
 require '../Modules/logout.php';

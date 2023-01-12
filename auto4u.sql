@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 09 jan 2023 om 12:55
+-- Gegenereerd op: 12 jan 2023 om 12:58
 -- Serverversie: 10.4.24-MariaDB
 -- PHP-versie: 8.1.6
 
@@ -67,16 +67,37 @@ INSERT INTO `cards` (`id`, `name`, `beschrijving`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabelstructuur voor tabel `cars`
+--
+
+CREATE TABLE `cars` (
+  `id` int(9) NOT NULL,
+  `model` varchar(255) NOT NULL,
+  `prijs` varchar(255) NOT NULL,
+  `beschrijving` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `cat_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Tabelstructuur voor tabel `catogorieen`
 --
 
 CREATE TABLE `catogorieen` (
   `id` int(9) NOT NULL,
-  `merk` varchar(255) NOT NULL,
-  `model` varchar(255) NOT NULL,
-  `prijs` decimal(12,0) NOT NULL,
-  `beschrijving` varchar(255) NOT NULL
+  `merk` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `catogorieen`
+--
+
+INSERT INTO `catogorieen` (`id`, `merk`) VALUES
+(1, 'img/bmw_logo.jpg'),
+(2, 'img/mercedes_logo.jpg'),
+(3, 'img/audi_logo.jpg');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -93,6 +114,13 @@ ALTER TABLE `accounts`
 --
 ALTER TABLE `cards`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexen voor tabel `cars`
+--
+ALTER TABLE `cars`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cat_id` (`cat_id`);
 
 --
 -- Indexen voor tabel `catogorieen`
@@ -117,10 +145,26 @@ ALTER TABLE `cards`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT voor een tabel `cars`
+--
+ALTER TABLE `cars`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT voor een tabel `catogorieen`
 --
 ALTER TABLE `catogorieen`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Beperkingen voor geëxporteerde tabellen
+--
+
+--
+-- Beperkingen voor tabel `cars`
+--
+ALTER TABLE `cars`
+  ADD CONSTRAINT `cars_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `catogorieen` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

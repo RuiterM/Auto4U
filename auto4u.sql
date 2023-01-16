@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 16 jan 2023 om 13:00
--- Serverversie: 10.4.24-MariaDB
--- PHP-versie: 8.1.6
+-- Gegenereerd op: 16 jan 2023 om 23:53
+-- Serverversie: 10.4.25-MariaDB
+-- PHP-versie: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -111,7 +111,10 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`id`, `name`, `prijs`, `beschrijving`, `picture`, `cat_id`) VALUES
 (1, '1 serie', '€ 36.253,10', 'De BMW 1 Serie laat zien hoe technische innovaties, een stijlvolle uitstraling en de precieze rijdynamiek van een BMW ook in de compacte klasse volledig tot uiting komen. De BMW combineert een zeer efficiënt design met krachtige maar zuinige motoren. De i', 'bmw_1_serie.png', 1),
 (2, '2 serie', '€ 48.869 ', 'Compromisloos, zelfbewust en expressief: in navolging van de BMW 1 Serie Coupé geldt dat concept ook voor de BMW 2 Serie Coupé, Cabrio en Gran Coupé. De BMW 2 Serie biedt keuze uit krachtige, compacte modelvarianten – die tot de beste behoren in hun klass', 'bmw_2_serie.png', 1),
-(3, '3 serie sedan', '€ 51.037 ', 'Nieuw, en toch al met geschiedenis. De nieuwe BMW 3 Serie is namelijk schatplichtig aan iedere 3 die voorafging. Ieder model legde de lat hoger en nam geen genoegen met compromissen. Nooit. Dat leidt nu tot de nieuwste BMW 3 Serie die een grote sprong voo', 'bmw_3_serie.png', 1);
+(3, '3 serie sedan', '€ 51.037 ', 'Nieuw, en toch al met geschiedenis. De nieuwe BMW 3 Serie is namelijk schatplichtig aan iedere 3 die voorafging. Ieder model legde de lat hoger en nam geen genoegen met compromissen. Nooit. Dat leidt nu tot de nieuwste BMW 3 Serie die een grote sprong voo', 'bmw_3_serie.png', 1),
+(4, 'AMG EQS 53 4MATIC+', '€ 176.608', 'Deze versie van de Mercedes-Benz EQS is in Nederland op de markt sinds januari 2022 en kost rijklaar € 176.608. De vierwielaangedreven auto heeft elektrische aandrijflijn, heeft een actieradius van 563 km en levert een maximum vermogen van 484 kW (658 pk)', 'merc_1.png', 2),
+(6, 'AMG GLA 35 4MATIC', '€ 91.032', 'De dynamische proporties zorgen ervoor dat de GLA compact en uiterst functioneel is. Deze compacte SUV past vrijwel overal in. Toch is er meer dan voldoende ruimte voor uw leven.', 'merc_2.png', 2),
+(8, 'Mercedes-AMG GT 63 S E Performance 4-Door Coupé', '€ 241.325', 'De Mercedes-AMG GT 4-Door is de eerste AMG-Benz die een plug-in hybride aandrijflijn krijgt. De heren en dames in Affalterbach maken daar geen zuinige spaarpot van. Nee, de Mercedes-AMG GT 63 S E Performance knalt AMG met 843 pk een nieuw tijdperk in.', 'merc_3.png', 2);
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -168,7 +171,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT voor een tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Beperkingen voor geëxporteerde tabellen

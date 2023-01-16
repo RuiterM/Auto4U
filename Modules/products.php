@@ -3,7 +3,7 @@
 function getProducts(int $catagoryId):array
 {
     global $pdo;
-    $sth = $pdo->prepare('SELECT * FROM product WHERE category_id=?');
+    $sth = $pdo->prepare('SELECT * FROM product WHERE cat_id=?');
     $sth->bindParam(1, $catagoryId);
     $sth->execute();
     return $sth->fetchAll(PDO::FETCH_CLASS, 'product');
@@ -17,4 +17,7 @@ function getProduct(int $productId):product
     $sth->execute();
     return $sth->fetchAll(PDO::FETCH_CLASS, 'product')[0];
 }
+
+
+
 ?>

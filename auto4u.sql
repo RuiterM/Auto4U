@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 12 jan 2023 om 12:58
+-- Gegenereerd op: 16 jan 2023 om 13:00
 -- Serverversie: 10.4.24-MariaDB
 -- PHP-versie: 8.1.6
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `auto4u`
 --
+CREATE DATABASE IF NOT EXISTS `auto4u` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `auto4u`;
 
 -- --------------------------------------------------------
 
@@ -32,15 +34,17 @@ CREATE TABLE `accounts` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `firstName` varchar(255) NOT NULL,
-  `lastName` varchar(255) NOT NULL
+  `lastName` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `email`, `password`, `firstName`, `lastName`) VALUES
-(5, 'janpiet@gmail.com', 'janpiet', 'jan', 'piet');
+INSERT INTO `accounts` (`id`, `email`, `password`, `firstName`, `lastName`, `role`) VALUES
+(5, 'janpiet@gmail.com', 'janpiet', 'jan', 'piet', ''),
+(6, 'ik@rocmondriaan.nl', 'qwerty', 'ik', 'geen', '');
 
 -- --------------------------------------------------------
 
@@ -67,37 +71,47 @@ INSERT INTO `cards` (`id`, `name`, `beschrijving`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `cars`
+-- Tabelstructuur voor tabel `category`
 --
 
-CREATE TABLE `cars` (
+CREATE TABLE `category` (
   `id` int(9) NOT NULL,
-  `model` varchar(255) NOT NULL,
-  `prijs` varchar(255) NOT NULL,
-  `beschrijving` varchar(255) NOT NULL,
-  `img` varchar(255) NOT NULL,
-  `cat_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `name` varchar(255) NOT NULL,
+  `picture` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='category';
+
+--
+-- Gegevens worden geëxporteerd voor tabel `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `picture`) VALUES
+(1, 'BMW', 'img/bmw_logo.png'),
+(2, 'Mercedes', 'img/mercedes_logo.png'),
+(3, 'Audi', 'img/audi_logo.png');
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `catogorieen`
+-- Tabelstructuur voor tabel `product`
 --
 
-CREATE TABLE `catogorieen` (
+CREATE TABLE `product` (
   `id` int(9) NOT NULL,
-  `merk` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `prijs` varchar(255) NOT NULL,
+  `beschrijving` varchar(255) NOT NULL,
+  `picture` varchar(255) NOT NULL,
+  `cat_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `catogorieen`
+-- Gegevens worden geëxporteerd voor tabel `product`
 --
 
-INSERT INTO `catogorieen` (`id`, `merk`) VALUES
-(1, 'img/bmw_logo.jpg'),
-(2, 'img/mercedes_logo.jpg'),
-(3, 'img/audi_logo.jpg');
+INSERT INTO `product` (`id`, `name`, `prijs`, `beschrijving`, `picture`, `cat_id`) VALUES
+(1, '1 serie', '€ 36.253,10', 'De BMW 1 Serie laat zien hoe technische innovaties, een stijlvolle uitstraling en de precieze rijdynamiek van een BMW ook in de compacte klasse volledig tot uiting komen. De BMW combineert een zeer efficiënt design met krachtige maar zuinige motoren. De i', 'bmw_1_serie.png', 1),
+(2, '2 serie', '€ 48.869 ', 'Compromisloos, zelfbewust en expressief: in navolging van de BMW 1 Serie Coupé geldt dat concept ook voor de BMW 2 Serie Coupé, Cabrio en Gran Coupé. De BMW 2 Serie biedt keuze uit krachtige, compacte modelvarianten – die tot de beste behoren in hun klass', 'bmw_2_serie.png', 1),
+(3, '3 serie sedan', '€ 51.037 ', 'Nieuw, en toch al met geschiedenis. De nieuwe BMW 3 Serie is namelijk schatplichtig aan iedere 3 die voorafging. Ieder model legde de lat hoger en nam geen genoegen met compromissen. Nooit. Dat leidt nu tot de nieuwste BMW 3 Serie die een grote sprong voo', 'bmw_3_serie.png', 1);
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -116,17 +130,17 @@ ALTER TABLE `cards`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexen voor tabel `cars`
+-- Indexen voor tabel `category`
 --
-ALTER TABLE `cars`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cat_id` (`cat_id`);
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexen voor tabel `catogorieen`
+-- Indexen voor tabel `product`
 --
-ALTER TABLE `catogorieen`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cat_id` (`cat_id`);
 
 --
 -- AUTO_INCREMENT voor geëxporteerde tabellen
@@ -136,7 +150,7 @@ ALTER TABLE `catogorieen`
 -- AUTO_INCREMENT voor een tabel `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT voor een tabel `cards`
@@ -145,15 +159,15 @@ ALTER TABLE `cards`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT voor een tabel `cars`
+-- AUTO_INCREMENT voor een tabel `category`
 --
-ALTER TABLE `cars`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `category`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT voor een tabel `catogorieen`
+-- AUTO_INCREMENT voor een tabel `product`
 --
-ALTER TABLE `catogorieen`
+ALTER TABLE `product`
   MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
@@ -161,10 +175,10 @@ ALTER TABLE `catogorieen`
 --
 
 --
--- Beperkingen voor tabel `cars`
+-- Beperkingen voor tabel `product`
 --
-ALTER TABLE `cars`
-  ADD CONSTRAINT `cars_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `catogorieen` (`id`);
+ALTER TABLE `product`
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `category` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

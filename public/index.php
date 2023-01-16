@@ -11,6 +11,8 @@ session_start();
 //var_dump($_POST);
 $message="";
 
+
+
 $request = $_SERVER['REQUEST_URI'];
 
 $params = explode("/", $request);
@@ -35,15 +37,22 @@ switch ($params[1]) {
         break;
 
     case 'product':
+        if (isset(params[2])) {
+            $productId = params[2];
+            $product = getProduct($productId);
+            echo "<pre>"; var_dump($product); echo"</pre>";
+            die;
+        }
         break;
 
     case 'login':
         $titleSuffix = ' | Home';
+
         include_once "../Templates/login.php";
         break;
 
-    case 'fietsen':
-       include_once "../Templates/fietsen.php";
+    case 'cars':
+       include_once "../Templates/cars.php";
        break;
 
     case 'details':

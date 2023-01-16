@@ -10,6 +10,7 @@ if (!isMember()) {
     switch ($params[2]) {
 
         case 'home':
+            include_once '../Templates/member/home.php';
             break;
 
         case 'products':

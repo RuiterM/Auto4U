@@ -17,8 +17,8 @@ $autos = $query->fetchAll(PDO::FETCH_ASSOC);?>
             ?>
             <div class="d-flex justify-content-center">
                 <div>
-                    <h1 class="pt-2">Goedemiddag, welkom bij Auto4u</h1>
-                    <i class="d-flex justify-content-center fw-bold fst-normal text-secondary">Goeden<?php $datum = date("H");
+                    <h1 class="pt-2">Goededag, welkom bij Auto4u</h1>
+                    <i class="d-flex justify-content-center fw-bold fst-normal text-secondary">Goeden<?php $datum = date("H:i");
 
                         if ($datum > 6 && $datum < 12) {
                             echo "ochtend";

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 16 jan 2023 om 23:53
--- Serverversie: 10.4.25-MariaDB
--- PHP-versie: 8.1.10
+-- Gegenereerd op: 17 jan 2023 om 12:59
+-- Serverversie: 10.4.24-MariaDB
+-- PHP-versie: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,7 +43,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `email`, `password`, `firstName`, `lastName`, `role`) VALUES
-(5, 'janpiet@gmail.com', 'janpiet', 'jan', 'piet', ''),
+(5, 'janpiet@gmail.com', 'janpiet', 'jan', 'piet', 'admin'),
 (6, 'ik@rocmondriaan.nl', 'qwerty', 'ik', 'geen', '');
 
 -- --------------------------------------------------------
@@ -114,7 +114,10 @@ INSERT INTO `product` (`id`, `name`, `prijs`, `beschrijving`, `picture`, `cat_id
 (3, '3 serie sedan', '€ 51.037 ', 'Nieuw, en toch al met geschiedenis. De nieuwe BMW 3 Serie is namelijk schatplichtig aan iedere 3 die voorafging. Ieder model legde de lat hoger en nam geen genoegen met compromissen. Nooit. Dat leidt nu tot de nieuwste BMW 3 Serie die een grote sprong voo', 'bmw_3_serie.png', 1),
 (4, 'AMG EQS 53 4MATIC+', '€ 176.608', 'Deze versie van de Mercedes-Benz EQS is in Nederland op de markt sinds januari 2022 en kost rijklaar € 176.608. De vierwielaangedreven auto heeft elektrische aandrijflijn, heeft een actieradius van 563 km en levert een maximum vermogen van 484 kW (658 pk)', 'merc_1.png', 2),
 (6, 'AMG GLA 35 4MATIC', '€ 91.032', 'De dynamische proporties zorgen ervoor dat de GLA compact en uiterst functioneel is. Deze compacte SUV past vrijwel overal in. Toch is er meer dan voldoende ruimte voor uw leven.', 'merc_2.png', 2),
-(8, 'Mercedes-AMG GT 63 S E Performance 4-Door Coupé', '€ 241.325', 'De Mercedes-AMG GT 4-Door is de eerste AMG-Benz die een plug-in hybride aandrijflijn krijgt. De heren en dames in Affalterbach maken daar geen zuinige spaarpot van. Nee, de Mercedes-AMG GT 63 S E Performance knalt AMG met 843 pk een nieuw tijdperk in.', 'merc_3.png', 2);
+(8, 'Mercedes-AMG GT 63 S E Performance 4-Door Coupé', '€ 241.325', 'De Mercedes-AMG GT 4-Door is de eerste AMG-Benz die een plug-in hybride aandrijflijn krijgt. De heren en dames in Affalterbach maken daar geen zuinige spaarpot van. Nee, de Mercedes-AMG GT 63 S E Performance knalt AMG met 843 pk een nieuw tijdperk in.', 'merc_3.png', 2),
+(9, 'R8 Coupé V10 performance', '€ 303.181,97', 'De atmosferische V10-motor van de Audi R8 Coupé V10 performance quattro levert 456 kW/620 pk1. Hierdoor neemt de sprint naar 100 km/h maar 3,1 seconden in beslag en is de topsnelheid 331 km/h.', 'audi_1.png', 3),
+(10, 'RS 5 Coupé', '€ 143.251,08', 'Het front is in lijn met de andere RS-modellen en wordt gedomineerd door de honingraatgrille zonder nadrukkelijke omlijsting. Deze voorkant geeft het begrip ‘road presence’ nieuwe lading. De breed uitgebouwde spatborden versterken het beeld van een auto d', 'audi_2.png', 3),
+(11, 'A3 Sportback TFSI e', '€ 42.825,00', 'De e-motor met de bijbehorende stroom uit de lithium-ionaccu ondersteunt op sportieve manier de 1.4 TFSI-motor. Het systeemvermogen van de 40 TFSI e bedraagt 150 kW/204 pk en dat van de 45 TFSI e 180 kW/245 pk.', 'audi_3.png', 3);
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -171,7 +174,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT voor een tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Beperkingen voor geëxporteerde tabellen

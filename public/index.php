@@ -37,12 +37,7 @@ switch ($params[1]) {
         break;
 
     case 'product':
-        if (isset(params[2])) {
-            $productId = params[2];
-            $product = getProduct($productId);
-            echo "<pre>"; var_dump($product); echo"</pre>";
-            die;
-        }
+        include_once "../Templates/products.php";
         break;
 
     case 'login':
@@ -56,6 +51,7 @@ switch ($params[1]) {
        break;
 
     case 'details':
+        $products=getProduct($params[2]);
         include_once "../Templates/details.php";
         break;
 

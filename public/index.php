@@ -17,7 +17,7 @@ $request = $_SERVER['REQUEST_URI'];
 
 $params = explode("/", $request);
 //print_r($request);
-$title = "HealthOne";
+$title = "Auto4u";
 $titleSuffix = "";
 
 //$params[1] is de action
@@ -51,7 +51,7 @@ switch ($params[1]) {
        break;
 
     case 'details':
-        $products=getProduct($params[2]);
+        $products=getProducts($params[2]);
         include_once "../Templates/details.php";
         break;
 

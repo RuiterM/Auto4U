@@ -13,27 +13,22 @@ if (isset($_POST['register'])) {
         $Password = filter_input(INPUT_POST,'password', FILTER_SANITIZE_STRING);
         $FirstName = filter_input(INPUT_POST,'firstName');
         $LastName = filter_input(INPUT_POST,'lastName');
-        $hashed_password = password_hash($Password, PASSWORD_DEFAULT);
 
-        if ($Email === false) {
+        if ($Email === false)
+        {
             $melding = "vul een email in!";
-        }else {
-
-            $Email = $_POST['email'];
-            $hashed_password = $_POST['password'];
-            $FirstName = $_POST['firstName'];
-            $LastName = $_POST['lastName'];
-
+        }
+        else
+        {
             $query = $db->prepare("INSERT INTO accounts(email, password, firstName, lastName) VALUES (:email, :password, :firstName, :lastName)");
 
             $query->bindParam(":email", $Email);
-            $query->bindParam(":password", $hashed_password);
+            $query->bindParam(":password", $Password);
             $query->bindParam(":firstName", $FirstName);
             $query->bindParam(":lastName", $LastName);
 
             if ($query->execute()) {
                 header('location:/login');
-
             }
         }
 

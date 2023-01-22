@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
-global $products;
+global $product;
 
 
 
@@ -16,7 +16,7 @@ include_once ('defaults/header.php');
 <br>
 <div class="container">
     <div class="row d-flex justify-content-center">
-        <?php foreach ($products as $product) {
+        <?php
             echo "<div class='card w-25 px-2 bg-secondary' style='margin: 5px'>";
             echo "<h2>".$product->name."</h2>";
             echo '<img class="border border-dark border-3 rounded-3 m-2" src="/img/'.$product->picture.'">' ."<br>";
@@ -24,7 +24,6 @@ include_once ('defaults/header.php');
             echo '<h4>De prijs van deze auto is: <br>'.$product->prijs .'<h4>'.'<br>';
             echo '</div>';
             echo "<br>";
-        }
         ?>
     </div>
 </div>

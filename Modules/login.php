@@ -11,15 +11,15 @@ function checkLogin():string
             $sql = 'SELECT * FROM `accounts` WHERE `email` = :e AND `password` = :p';
             $sql = $pdo->prepare($sql);
             $sql->bindParam(':e',$email);
-            $sql->bindParam(':p',$password);
+            $sql->bindParam(':p', $password);
             $sql->setFetchMode(PDO::FETCH_CLASS, 'User');
             $sql->execute();
-            $user = $sth->fetch();
+            $user = $sql->fetch();
 
             if ($user!==false)
             {
                 $_SESSION['user']=$user;
-                if ($_SESSION['usr']->role=="admin")
+                if ($_SESSION['user']->role=="admin")
                 {
                     return 'ADMIN';
                 }
@@ -27,6 +27,10 @@ function checkLogin():string
                 {
                     return 'MEMBER';
                 }
+            }
+            else
+            {
+                echo "ASDDDD";
             }
             return 'FAILURE';
         }

@@ -16,8 +16,7 @@ function getProduct(int $productId):product
     $sth->bindParam(1, $productId);
     $sth->execute();
     return $sth->fetchAll(PDO::FETCH_CLASS, 'product')[0];
+
 }
-
-
 
 ?>

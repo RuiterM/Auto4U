@@ -5,7 +5,6 @@ global $products;
 
 
 
-
 include_once('defaults/head.php');
 ?>
 <body>

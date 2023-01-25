@@ -41,9 +41,26 @@ switch ($params[1]) {
         break;
 
     case 'login':
-        $titleSuffix = ' | Home';
-
-        include_once "../Templates/login.php";
+        $titleSuffix = ' | Login';
+        if(isset($_POST['login'])){
+            $result = checkLogin();
+            switch ($result){
+                case 'ADMIN':
+                    header("Location: /admin/home");
+                    break;
+                case 'FAILURE':
+                    $message = "Email en/of wachtwoord kloppen niet";
+                    include_once "../Templates/login.php";
+                    break;
+                case 'INCOMPLETE':
+                    $message = "Vul wel alles in!";
+                    include_once "../Templates/login.php";
+                    break;
+            }
+        }
+        else {
+            include_once "../Templates/login.php";
+        }
         break;
 
     case 'cars':
@@ -68,7 +85,7 @@ switch ($params[1]) {
 
     case 'contact':
         $titleSuffix = ' | Home';
-        include_once "../Templates/home.php";
+        include_once "../Templates/contact.php";
         break;
 
     case 'admin':

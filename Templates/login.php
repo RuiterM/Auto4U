@@ -1,4 +1,5 @@
 <?php
+<<<<<<< Updated upstream
 $melding = "";
 $db = new PDO('mysql:host=localhost;dbname=auto4u',
     "root" . "");
@@ -44,6 +45,10 @@ if (isset($_POST['Login'])) {
     }
 }
 
+=======
+global $checkLogin;
+$melding = '';
+>>>>>>> Stashed changes
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,9 +68,25 @@ include_once ('defaults/header.php');
             <label for="email">Email:</label><br>
             <input type="email" id="input" class="border-bottom border-dark border-2" name="email"><br><br>
             <label for="email">Password:</label><br>
-            <input type="password" id="input" class="border-bottom border-dark border-2" name="password"><br><br>
+            <input type="password" id="input" class="border-bottom border-dark border-2" name="password" id="password"><br><br>
             <button type="submit" id="submit" name="register" class="d-flex border-bottom border-dark border-2" value="Login">Login</button><br>
             <?php echo $melding ?><br><br>
+<<<<<<< Updated upstream
+=======
+            <?php
+            $user = checkLogin();
+
+            if ($user == "USER")
+            {
+                header("admin/adminhome.php");
+            }
+            elseif ($user == "ADMIN")
+            {
+                echo $user;
+                header('../public/admin.php');
+            }
+            ?>
+>>>>>>> Stashed changes
         </form>
     </div>
 </div>

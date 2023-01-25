@@ -16,8 +16,11 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%);"
                 <li class="nav-item">
                     <a id="header_btn" class="nav-link text-light" href="/categories">Catogoriën</a>
                 </li>
+                <li class="nav-item">
+                    <a id="header_btn" class="nav-link text-light" href="/contact">Contact</a>
+                </li>
                 <li class="nav-item me-auto">
-                    <a id="header_btn2" class="nav-link text-dark" style="margin-left: 1500px" href="/login">Login</a>
+                    <a id="header_btn2" class="nav-link text-dark" style="margin-left: 1425px" href="/login">Login</a>
                 </li>
                 <li class="nav-item me-auto">
                     <a id="header_btn2" class="nav-link text-dark" href="/register">Registeer</a>

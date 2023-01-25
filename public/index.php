@@ -68,9 +68,10 @@ switch ($params[1]) {
        break;
 
     case 'details':
-        $products=getProduct($params[2]);
+        $product=getProduct($params[2]);
         include_once "../Templates/details.php";
         break;
+
 
 
         case 'logout':

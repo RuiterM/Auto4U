@@ -48,6 +48,9 @@ switch ($params[1]) {
                 case 'ADMIN':
                     header("Location: /admin/home");
                     break;
+                case 'MEMBER':
+                    header("Location: /member/home");
+                    break;
                 case 'FAILURE':
                     $message = "Email en/of wachtwoord kloppen niet";
                     include_once "../Templates/login.php";
@@ -71,8 +74,6 @@ switch ($params[1]) {
         $product=getProduct($params[2]);
         include_once "../Templates/details.php";
         break;
-
-
 
         case 'logout':
         $titleSuffix = ' | Home';

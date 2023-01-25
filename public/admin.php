@@ -1,5 +1,8 @@
 <?php
 global $params;
+include_once '../Modules/login.php';
+include_once '../Modules/logout.php';
+
 
 //check if user has role admin
 if (!isAdmin()) {

@@ -20,7 +20,7 @@ function checkLogin():string
                 return "ADMIN";
             }
             else{
-                return "INCOMPLETE";
+                return "ja jammer";
             }
         }
         return "FAILURE";

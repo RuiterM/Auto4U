@@ -5,6 +5,8 @@ require '../Modules/logout.php';
 require '../Modules/database.php';
 require '../Modules/common.php';
 require '../Modules/products.php';
+require '../Modules/reviews.php';
+
 
 session_start();
 //var_dump($_SESSION);
@@ -72,10 +74,11 @@ switch ($params[1]) {
 
     case 'details':
         $product=getProduct($params[2]);
+        $review=getReview($params[2]);
         include_once "../Templates/details.php";
         break;
 
-        case 'logout':
+    case 'logout':
         $titleSuffix = ' | Home';
         include_once "../Templates/home.php";
         break;

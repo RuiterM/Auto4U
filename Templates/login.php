@@ -30,7 +30,7 @@ include_once ('defaults/header.php');
             echo $user;
             if ($user == "USER")
             {
-                //header("admin/adminhome.php");
+                header("../member.php");
                 echo 'faya mos';
             }
             elseif ($user == "ADMIN")

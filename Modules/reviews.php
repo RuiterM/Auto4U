@@ -1,11 +1,11 @@
 <?php
 
-function getReview(int $productId):review
+function getReviews(int $productId):array
 {
     global $pdo;
-    $sth = $pdo->prepare('SELECT * FROM reviews WHERE prod_id=?');
+    $sth = $pdo->prepare('SELECT * FROM review WHERE product_id=?');
     $sth->bindParam(1, $productId);
     $sth->execute();
-    return $sth->fetchAll(PDO::FETCH_CLASS, 'review')[0];
+    return $sth->fetchAll(PDO::FETCH_CLASS, 'review');
 }
 ?>

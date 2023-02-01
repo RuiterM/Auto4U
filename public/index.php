@@ -74,7 +74,7 @@ switch ($params[1]) {
 
     case 'details':
         $product=getProduct($params[2]);
-        $review=getReview($params[2]);
+        $reviews=getReviews($params[2]);
         include_once "../Templates/details.php";
         break;
 
@@ -93,9 +93,9 @@ switch ($params[1]) {
         include_once "../Templates/contact.php";
         break;
 
-    case 'admin':
-        include_once('admin.php');
-        break;
+//    case 'admin':
+//        include_once('admin.php');
+//        break;
 
     case 'member':
         include_once('member.php');

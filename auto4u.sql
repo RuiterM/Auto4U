@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 17 jan 2023 om 12:59
+-- Gegenereerd op: 01 feb 2023 om 15:17
 -- Serverversie: 10.4.24-MariaDB
 -- PHP-versie: 8.1.6
 
@@ -44,7 +44,8 @@ CREATE TABLE `accounts` (
 
 INSERT INTO `accounts` (`id`, `email`, `password`, `firstName`, `lastName`, `role`) VALUES
 (5, 'janpiet@gmail.com', 'janpiet', 'jan', 'piet', 'admin'),
-(6, 'ik@rocmondriaan.nl', 'qwerty', 'ik', 'geen', '');
+(6, 'ik@rocmondriaan.nl', 'qwerty', 'ik', 'geen', ''),
+(7, 'hallo@hallo.nl', 'de', 'de', 'de', '');
 
 -- --------------------------------------------------------
 
@@ -119,6 +120,38 @@ INSERT INTO `product` (`id`, `name`, `prijs`, `beschrijving`, `picture`, `cat_id
 (10, 'RS 5 Coupé', '€ 143.251,08', 'Het front is in lijn met de andere RS-modellen en wordt gedomineerd door de honingraatgrille zonder nadrukkelijke omlijsting. Deze voorkant geeft het begrip ‘road presence’ nieuwe lading. De breed uitgebouwde spatborden versterken het beeld van een auto d', 'audi_2.png', 3),
 (11, 'A3 Sportback TFSI e', '€ 42.825,00', 'De e-motor met de bijbehorende stroom uit de lithium-ionaccu ondersteunt op sportieve manier de 1.4 TFSI-motor. Het systeemvermogen van de 40 TFSI e bedraagt 150 kW/204 pk en dat van de 45 TFSI e 180 kW/245 pk.', 'audi_3.png', 3);
 
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `review`
+--
+
+CREATE TABLE `review` (
+  `id` int(9) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `stars` int(5) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `review`
+--
+
+INSERT INTO `review` (`id`, `name`, `date`, `description`, `stars`, `user_id`, `product_id`) VALUES
+(1, 'jan', '2014-02-12', 'De BMW 1-serie is een compacte en sportieve auto met veel vermogen en een uitstekende wegligging. Het interieur is luxe en modern, en de technologie aan boord is uitstekend.', 4, 5, 1),
+(3, 'peter', '2014-02-17', 'De BMW 2-serie is een dynamische en sportieve coupé met een krachtige motor en een goede balans tussen prestaties en comfort. Het interieur is elegant en functioneel, en de technologie is van hoge kwaliteit.', 5, 5, 2),
+(4, 'karel', '2015-02-11', 'De BMW 3-serie is een iconische en populaire middenklasser met veel vermogen en een uitstekende rijdynamiek. Het interieur is luxueus en comfortabel, en de technologie aan boord is geavanceerd. Het is een zeer goede allround auto.', 3, 5, 3),
+(5, 'lauren', '2020-02-04', 'De AMG EQS 53 4MATIC+ is een luxueuze en krachtige elektrische sedan met een indrukwekkende prestatie en een indrukwekkende rijervaring. Het interieur is prachtig afgewerkt met hoogwaardige materialen en de technologie is geavanceerd en gebruiksvriendelij', 5, 5, 4),
+(6, 'henk', '2017-02-08', 'De AMG GLA 35 4MATIC is een compacte en sportieve crossover met een krachtige motor en een uitstekende rijdynamiek. Het interieur is comfortabel en stijlvol, en de technologie aan boord is van hoge kwaliteit.', 4, 5, 6),
+(7, 'nick', '2018-02-08', 'De Mercedes-AMG GT 63 S E Performance 4-Door Coupé is een indrukwekkende en snelle sportwagen met een krachtige motor en een indrukwekkende wegligging. Het interieur is luxe en comfortabel, en de technologie aan boord is geavanceerd.', 5, 5, 8),
+(8, 'sarah', '2021-02-18', 'De R8 Coupé V10 performance is een indrukwekkende en snelle sportwagen met een krachtige motor en een uitstekende wegligging. Het interieur is luxueus en comfortabel, en de technologie aan boord is geavanceerd.', 2, 5, 9),
+(9, 'roxanne', '2020-02-13', 'De RS 5 Coupé is een krachtige en sportieve coupé met een indrukwekkende prestatie en een uitstekende rijdynamiek. Het interieur is comfortabel en stijlvol, en de technologie aan boord is van hoge kwaliteit.', 3, 5, 10),
+(10, 'geert', '2018-02-26', 'De A3 Sportback TFSI e is een efficiënte en sportieve plug-in hybride met een krachtige motor en een goede balans tussen prestaties en comfort. Het interieur is stijlvol en functioneel, en de technologie aan boord is geavanceerd en gebruiksvriendelijk.', 3, 5, 11),
+(11, 'truus', '2018-02-07', 'De BMW 1-serie is een compacte en sportieve auto met een krachtige motor en een uitstekende wegligging. Het interieur is stijlvol en comfortabel, en de technologie aan boord is geavanceerd en gebruiksvriendelijk. Het is een ideale auto voor degenen die op', 4, 5, 1);
+
 --
 -- Indexen voor geëxporteerde tabellen
 --
@@ -149,6 +182,14 @@ ALTER TABLE `product`
   ADD KEY `cat_id` (`cat_id`);
 
 --
+-- Indexen voor tabel `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
@@ -156,7 +197,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT voor een tabel `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT voor een tabel `cards`
@@ -177,6 +218,12 @@ ALTER TABLE `product`
   MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT voor een tabel `review`
+--
+ALTER TABLE `review`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- Beperkingen voor geëxporteerde tabellen
 --
 
@@ -185,6 +232,13 @@ ALTER TABLE `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `category` (`id`);
+
+--
+-- Beperkingen voor tabel `review`
+--
+ALTER TABLE `review`
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `accounts` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

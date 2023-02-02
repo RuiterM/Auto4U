@@ -22,22 +22,8 @@ include_once ('defaults/header.php');
             <input type="email" id="input" class="border-bottom border-dark border-2" name="email"><br><br>
             <label for="email">Password:</label><br>
             <input type="password" id="input" class="border-bottom border-dark border-2" name="password"><br><br>
-            <button type="submit" id="submit" name="register" class="d-flex border-bottom border-dark border-2" value="Login">Login</button><br>
+            <button type="submit" id="submit" name="login" class="d-flex border-bottom border-dark border-2" value="Login">Login</button><br>
             <?php echo $melding ?><br><br>
-            <?php
-            $user = checkLogin();
-
-            echo $user;
-            if ($user == "USER")
-            {
-                header("../member.php");
-                echo 'faya mos';
-            }
-            elseif ($user == "ADMIN")
-            {
-                header("location: ../admin.php");
-            }
-            ?>
         </form>
     </div>
 </div>

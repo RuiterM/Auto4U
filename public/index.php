@@ -6,7 +6,7 @@ require '../Modules/database.php';
 require '../Modules/common.php';
 require '../Modules/products.php';
 require '../Modules/reviews.php';
-
+require '../Modules/accounts.php';
 
 session_start();
 //var_dump($_SESSION);
@@ -46,6 +46,8 @@ switch ($params[1]) {
         $titleSuffix = ' | Login';
         if(isset($_POST['login'])){
             $result = checkLogin();
+            //var_dump($result);
+           // die;
             switch ($result){
                 case 'ADMIN':
                     header("Location: /admin/home");

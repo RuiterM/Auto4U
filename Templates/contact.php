@@ -1,9 +1,4 @@
-<?php
-$db = new PDO('mysql:host=localhost;dbname=auto4u',
-    "root" . "");
-$query = $db->prepare("select * FROM cards");
-$query->execute();
-$autos = $query->fetchAll(PDO::FETCH_ASSOC);?>
+<?php ?>
 
 <!DOCTYPE html>
 <html>

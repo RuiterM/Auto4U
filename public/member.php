@@ -1,4 +1,5 @@
 <?php
+
 global $params;
 //$params[2] is de action en $params[3] een getal die de action nodig heeft
 //check if user has role admin
@@ -16,6 +17,7 @@ if (!isMember()) {
         case 'products':
             break;
         case 'profile':
+            include_once '../Templates/member/profiel.php';
             break;
         case 'editprofile':
             break;
